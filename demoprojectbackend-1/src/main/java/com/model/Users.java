@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,6 +31,7 @@ public class Users {
     private String email;
     
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
     private Set<Donations> donations;
 
 }

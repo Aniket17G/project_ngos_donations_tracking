@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,5 +32,6 @@ public class Ngos {
     private String description;
 
     @OneToMany(mappedBy = "ngo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("ngo")
     private Set<Expenditures> expenditures;
 }
